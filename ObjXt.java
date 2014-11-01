@@ -6,11 +6,9 @@ import java.math.*;
 import java.lang.String;
 
 
-
-
 //////////////////////////////////////////////////////////////
 /////ObjXt
-class ObjXt
+public class ObjXt
 {
     ObjXt() {};
     ObjXt(ObjXt Objx)

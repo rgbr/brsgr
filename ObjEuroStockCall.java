@@ -17,8 +17,6 @@ public class ObjEuroStockCall extends ObjXt {
                 setNdX();
             };
 
-    ////
-    protected double Dt = Math.exp(-this.r*this.t);
     private ObjEuroStockCall Obj;
 
      /**{ return ((1 / (this.Vol * Math.sqrt(this.T))) * ( Math.log(this.S / this.K ) + (r + ((this.Vol ^ 2)/2))*this.T));};**/
@@ -31,7 +29,6 @@ public class ObjEuroStockCall extends ObjXt {
     @Override protected double d2() {
         return NumMathJ.N(this.d1() - (this.vol * Math.sqrt(this.t)));
        };                       //  risk neutral stock strike
-    @Override public void setPi() { pi = (this.getS()*this.getNdS() - this.getX()*this.getNdX()*Dt); };
     @Override public String toString() { return ("EuroCall" + contract + " |"); };
 
 };
@@ -47,9 +44,7 @@ class ObjEuroStockPut extends ObjEuroStockCall {
                 setNdX();
             };
 
-    ////
     private ObjEuroStockPut Obj;
-
     @Override public void setPi() { pi = (this.getX()*this.getNdX() - this.getS()*this.getNdS()); };
     @Override public String toString() { return ("EuroPut" + contract + " |"); };
 
